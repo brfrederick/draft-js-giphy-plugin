@@ -1,0 +1,39 @@
+{
+  "name": "draft-js-giphy-plugin",
+  "version": "1.0.0",
+  "description": "A Draft.js plugin introducing a gif keyboard.  For use with draft-js-plugins editor",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "src": "src"
+  },
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brfrederick/draft-js-giphy-plugin.git"
+  },
+  "keywords": [],
+  "author": "Braxton Frederick, Aaron Sky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brfrederick/draft-js-giphy-plugin/issues"
+  },
+  "homepage": "https://github.com/brfrederick/draft-js-giphy-plugin#readme",
+  "babel": {
+    "preset": [
+      "es2015",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "draft-js": "^0.7.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
