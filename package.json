@@ -29,11 +29,14 @@
     ]
   },
   "devDependencies": {
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "decorate-component-with-props": "^1.0.2",
     "draft-js": "^0.7.0",
+    "draft-js-plugins-editor": "^1.1.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0"
   }
