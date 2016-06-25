@@ -3,7 +3,7 @@ import { Entity } from 'draft-js';
 
 export default class GifEntity extends Component {
 
-	remove = (event) => {
+	remove(event) => {
 		event.preventDefault();
 		event.stopPropagation();
 
@@ -14,7 +14,7 @@ export default class GifEntity extends Component {
 		const { block, gifs, theme = {} } = this.props;
 		const removeButton = (
 		    <span
-				className={ theme.stickerRemoveButton }
+				className={ theme.gifRemoveButton }
 				onClick={ this.remove }
 				role="button">
 				✕
@@ -35,5 +35,4 @@ export default class GifEntity extends Component {
 		</figure>
 	    );
 	}
-
 }

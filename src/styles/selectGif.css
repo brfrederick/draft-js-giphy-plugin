@@ -1,0 +1,21 @@
+.selectGif {
+  border: 0;
+  border-radius: 4px;
+  background: #fff;
+  margin: 5px 0px 5px 0px;
+  box-sizing: border-box;
+}
+
+.selectGif:hover, .root:focus {
+  background: #efefef;
+  outline: 0; /* reset for :focus */
+}
+
+.selectGif:active {
+  background: #dfdfdf;
+}
+
+.selectGifImage {
+  height: 80px;
+  width: 80px;
+}
