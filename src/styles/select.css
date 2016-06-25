@@ -49,6 +49,7 @@
 
 .selectPressedButton {
   box-sizing: border-box;
+  background: #ededed;
   border: 1px solid #ddd;
   padding: 0;
   color: #888;
@@ -60,7 +61,18 @@
   font-size: 1.5em;
   line-height: 1.2em;
   margin: 0;
-  background: #ededed;
+}
+
+.selectPressedButton:focus {
+  outline: 0; /* reset for :focus */
+}
+
+.selectPressedButton:hover {
+  background: #f3f3f3;
+}
+
+.selectPressedButton:active {
+  background: #e6e6e6;
 }
 
 .selectBottomGradient {
