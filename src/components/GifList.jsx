@@ -86,7 +86,7 @@ export default class GifList extends Component {
 					onMouseEnter={ this.onMouseEnter }
 					onMouseLeave={ this.onMouseLeave }>
 					<div className={ theme.selectGifList }>
-						{ gifElements.toList().toJS() }
+						{ gifOptions }
 					</div>
 					<div className={ theme.selectBottomGradient }></div>
 				</div>
