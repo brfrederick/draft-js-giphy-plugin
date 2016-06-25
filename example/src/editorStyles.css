@@ -1,3 +1,8 @@
+.content {
+  width: 80vw;
+  margin-left:10vw;
+}
+
 .editor {
   box-sizing: border-box;
   border: 1px solid #ddd;

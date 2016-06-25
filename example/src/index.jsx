@@ -4,9 +4,11 @@ import editorStyles from './editorStyles.css';
 import CustomEditor from './CustomEditor';
 
 ReactDOM.render(
-  <div>
-    <h2> Giphy Keyboard Plugin for Draft-js </h2>
-    <CustomEditor />
+  <div style={{'margin-top': '8vh'}}>
+    <h2 style={{'text-align':'center', 'margin-bottom': '64px'}}> Giphy Keyboard Plugin for Draft-js </h2>
+    <div className="content">
+      <CustomEditor />
+    </div>
   </div>,
   document.getElementById('app')
 );
