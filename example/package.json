@@ -24,7 +24,8 @@
   "babel": {
     "presets": [
       "es2015",
-      "react"
+      "react",
+      "stage-0"
     ]
   },
   "devDependencies": {
@@ -42,6 +43,14 @@
   "dependencies": {
     "draft-js": "^0.7.0",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "draft-js": "^0.3.0",
+    "draft-js-emoji-plugin": "0.0.3",
+    "draft-js-hashtag-plugin": "0.0.4",
+    "draft-js-linkify-plugin": "0.0.3",
+    "draft-js-mention-plugin": "0.0.3",
+    "draft-js-plugins-editor": "^0.2.0",
+    "draft-js-sticker-plugin": "0.0.3",
+    "draft-js-undo-plugin": "0.0.5"
   }
 }
