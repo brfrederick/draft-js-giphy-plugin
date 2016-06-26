@@ -37,8 +37,15 @@ export default class Container extends Component {
 	render() {
 		return (
 			<div>
-				<SearchBar onChange={ this.onChange } />
-				<GifList gifs={ this.state.gifs } onGifClick={ this.onGifClick }/>
+				<SearchBar
+          onChange={ this.onChange }
+          theme={ this.props.theme }
+        />
+				<GifList
+          gifs={ this.state.gifs }
+          onGifClick={ this.onGifClick }
+          theme={ this.props.theme }
+        />
 			</div>
 		);
 	}

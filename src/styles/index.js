@@ -3,7 +3,7 @@ import gifStyles from './gif.css';
 import selectStyles from './select.css';
 import selectGifStyles from './selectGif.css';
 
-
+console.log(gifStyles, selectStyles, selectGifStyles);
 export default {
   gif: gifStyles.gif,
   gifImage: gifStyles.gifImage,

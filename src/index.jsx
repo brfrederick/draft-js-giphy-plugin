@@ -11,9 +11,12 @@ import blockRendererFn from './blockRendererFn';
 import GifEntity from './components/GifEntity';
 import GifContainer from './components/Container';
 
+/* Styles */
+import defaultTheme from './styles';
 
 export default function(config = {}) {
-  const theme = config.theme || require('./styles');
+  const theme = config.theme || defaultTheme;
+  console.log(theme);
 
 	const containerProps = {
 		selectButtonContent: config.selectButtonContent || '☺',
@@ -28,7 +31,7 @@ export default function(config = {}) {
 	const blockRendererConfig = {
 		...config,
 		GifEntity: decorateComponentWithProps(GifEntity, gifProps)
-	}
+	};
 
 	return {
     add,

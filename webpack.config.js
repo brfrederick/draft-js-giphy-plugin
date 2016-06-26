@@ -13,12 +13,12 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'react-hot!babel'
       },
-      // {
-      //   test: /\.css$/,
-      //   loaders: [
-      //     'style', 'css',
-      //   ]
-      // }
+      {
+        test: /\.css$/,
+        loaders: [
+          'style', 'css',
+        ]
+      }
     ]
   },
   resolve: {

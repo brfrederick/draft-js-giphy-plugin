@@ -73,7 +73,7 @@ export default class GifList extends Component {
 				);
 		});
 
-		const { theme = {} } = this.props;
+		const theme = this.props.theme;
 		const popoverClassName = this.state.open ? theme.selectPopover : theme.selectClosedPopover;
 		const buttonClassName = this.state.open ? theme.selectPressedButton : theme.selectButton;
 
