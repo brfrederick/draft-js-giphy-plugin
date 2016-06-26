@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 /* Helpers */
 import Giphy from '../helpers/giphy';
-import add from '../helpers/addGif';
+import addGif from '../helpers/addGif';
 
 /* Components */
 import SearchBar from './SearchBar';
@@ -75,7 +75,7 @@ export default class GiphyContainer extends Component {
 	onGifClick(gif){
 		// add gif?
 		const { editor } = this.props;
-		editor.onChange(add(editor.state.editorState, gif));
+		editor.onChange(addGif(editor.state.editorState, gif));
 	}
 
 	render() {

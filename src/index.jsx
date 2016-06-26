@@ -2,8 +2,8 @@
 import decorateComponentWithProps from 'decorate-component-with-props';
 
 /* Helpers */
-import add from './helpers/addGif';
-import remove from './helpers/removeGif';
+import addGif from './helpers/addGif';
+import removeGif from './helpers/removeGif';
 import cleanupGifs from './helpers/cleanupGifs';
 import blockRendererFn from './helpers/blockRendererFn';
 
@@ -33,6 +33,7 @@ export default function(config = {}) {
 
 	const gifProps = {
 		attachRemoveButton: config.attachRemoveButton !== false,
+		gifs: [],
 		theme
 	};
 
@@ -42,10 +43,12 @@ export default function(config = {}) {
 	};
 
 	return {
-		add,
-		remove,
-		onChange: cleanupGifs,
+		pluginProps: {
 		blockRendererFn: blockRendererFn(blockRendererConfig),
+		onChange: cleanupGifs
+		},
+		add: addGif,
+		remove: removeGif,
 		GiphyContainer: decorateComponentWithProps(GiphyContainer, containerProps)
 	};
 };

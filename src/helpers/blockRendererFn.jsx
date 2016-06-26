@@ -1,11 +1,11 @@
 import remove from './removeGif';
 
-export default ({ GifEntity : component }) =>
+export default (config) =>
   (block, { getEditorState, setEditorState }) => {
-    console.log(block);
-    if (block.getType() === 'gif') {
+    if (block.getType() === 'GIF') {
+      console.log(block);
       return {
-        component,
+        component: config.GifEntity,
         props: {
           onRemove: key =>
             setEditorState(remove(getEditorState(), key))

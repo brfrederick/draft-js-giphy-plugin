@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class GifOption extends Component {
 	onClick() {
 		this.props.onClick(this.props);
-    e.preventDefault();
+    	e.preventDefault();
 	}
 
 	render() {

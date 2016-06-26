@@ -15,7 +15,7 @@ export default class GifEntity extends Component {
 	}
 
 	render() {
-		const { block, gifs, theme = {} } = this.props;
+		const { block, theme = {} } = this.props;
 		const removeButton = (
 		    <span
 				className={ theme.gifRemoveButton }
@@ -34,10 +34,10 @@ export default class GifEntity extends Component {
 				className={ theme.gif }>
 		        <img
 		          className={ theme.gifImage }
-		          src={ gif.url }
+		          src={ data.url }
 		          role="presentation"
-		          width={ gif.width }
-		          height={ gif.height }/>
+		          width={ data.width }
+		          height={ data.height }/>
 			{ this.props.attachRemoveButton ? removeButton : null }
 		</figure>
 	    );

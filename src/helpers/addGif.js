@@ -38,15 +38,15 @@ export default (editorState, gif) => {
         insertionTargetSelection = insertionTargetBlock.getSelectionAfter();
     }
 
-    const newContentStateAfterSplit = Modifier.setBlockType(insertionTargetBlock, insertionTargetSelection, 'gif');
+    const newContentStateAfterSplit = Modifier.setBlockType(insertionTargetBlock, insertionTargetSelection, 'GIF');
 
-    const entityKey = Entity.create('gif', 'IMMUTABLE', gif);
+    const entityKey = Entity.create('GIF', 'IMMUTABLE', gif);
     const charDataOfGif = CharacterMetadata.create({ entity: entityKey });
 
     const fragmentArray = [
         new ContentBlock({
             key: genKey(),
-            type: 'gif',
+            type: 'GIF',
             text: '',
             characterList: List(Repeat(charDataOfGif, 1))
         }),
