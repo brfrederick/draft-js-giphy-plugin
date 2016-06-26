@@ -2,49 +2,26 @@
 import decorateComponentWithProps from 'decorate-component-with-props';
 
 /* Helpers */
-import addGif from './helpers/addGif';
-import removeGif from './helpers/removeGif';
+import add from './helpers/addGif';
+import remove from './helpers/removeGif';
 import cleanupGifs from './helpers/cleanupGifs';
-import blockRendererFn from './helpers/blockRendererFn';
+import blockRendererFn from './blockRendererFn';
 
 /* Components */
 import GifEntity from './components/GifEntity';
-import Container from './components/Container';
+import GifContainer from './components/Container';
 
-/* Styling */
-import gifStyles from './styles/gif.css';
-import selectStyles from './styles/select.css';
-import selectGifStyles from './styles/selectGif.css';
 
-const defaultTheme = {
-  gif: gifStyles.gif,
-  gifImage: gifStyles.gifImage,
-  gifRemoveButton: gifStyles.gifRemoveButton,
+export default function(config = {}) {
+  const theme = config.theme || require('./styles');
 
-  select: selectStyles.select,
-  selectPopover: selectStyles.selectPopover,
-  selectClosedPopover: selectStyles.selectClosedPopover,
-  selectBottomGradient: selectStyles.selectBottomGradient,
-  selectButton: selectStyles.selectButton,
-  selectPressedButton: selectStyles.selectPressedButton,
-  selectGifList: selectStyles.selectGifList,
-
-  selectGif: selectGifStyles.selectGif,
-  selectGifImage: selectGifStyles.selectGifImage,
-};
-
-const giphyPlugin = (config = {}) => {
-	const theme = config.theme || defaultTheme;
-
-	const selectButtonContent = config.selectButtonContent || '☺';
 	const containerProps = {
-		selectButtonContent,
+		selectButtonContent: config.selectButtonContent || '☺',
 		theme
 	};
 
-	const attachRemoveButton = config.attachRemoveButton !== false;
 	const gifProps = {
-		attachRemoveButton,
+		attachRemoveButton: config.attachRemoveButton !== false,
 		theme
 	};
 
@@ -52,13 +29,12 @@ const giphyPlugin = (config = {}) => {
 		...config,
 		GifEntity: decorateComponentWithProps(GifEntity, gifProps)
 	}
+
 	return {
-	    blockRendererFn: blockRendererFn(blockRendererConfig),
-	    onChange: cleanupGifs,
-	    add: addGif,
-	    remove: removeGif,
-	    Container: decorateComponentWithProps(Container, containerProps)
+    add,
+    remove,
+    onChange: cleanupGifs,
+    blockRendererFn: blockRendererFn(blockRendererConfig),
+    GifContainer: decorateComponentWithProps(GifContainer, containerProps)
 	};
 };
-
-export default giphyPlugin;

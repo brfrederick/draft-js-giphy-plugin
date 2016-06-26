@@ -68,14 +68,15 @@ const stickers = fromJS({
 
 const text = `Type here...`;
 
+const giphyPlugin = createGiphyPlugin();
+const GifContainer = giphyPlugin.GifContainer;
+
 const mentionPlugin = createMentionPlugin({ mentions });
 const linkifyPlugin = createLinkifyPlugin();
 const stickerPlugin = createStickerPlugin({ stickers });
 const StickerSelect = stickerPlugin.StickerSelect;
 const hashtagPlugin = createHashtagPlugin();
 const undoPlugin = createUndoPlugin();
-const giphyPlugin = createGiphyPlugin();
-const Container = giphyPlugin.Container;
 const { UndoButton, RedoButton } = undoPlugin;
 
 const plugins = [mentionPlugin, linkifyPlugin, stickerPlugin, giphyPlugin, hashtagPlugin, undoPlugin];
@@ -108,7 +109,7 @@ export default class CustomEditor extends Component {
           />
         </div>
         <div className="option">
-          <Container editor={ this } />
+          <GifContainer editor={ this } />
           <StickerSelect editor={ this }  />
           <span style={{marginRight:'10px'}} />
           <UndoButton

@@ -10,12 +10,9 @@ function setOverflow(newValue, element) {
 }
 
 export default class GifList extends Component {
-	constructor(props) {
-    	super(props);
-    	this.state = {
-    		open: false
-    	};
-	}
+  state = {
+		open: false
+  }
 
 	componentDidMount() {
 		document.addEventListener('click', this.closePopover);
@@ -34,6 +31,7 @@ export default class GifList extends Component {
 	}
 
 	openPopover() {
+    console.log(this.state);
 		if(!this.state.open) {
 			this.preventNextClose = true;
 			this.setState({
@@ -43,6 +41,7 @@ export default class GifList extends Component {
 	}
 
 	closePopover() {
+    console.log(this.state);
 		if (!this.preventNextClose && this.state.open) {
 			this.setState({
 				open: false
@@ -73,6 +72,7 @@ export default class GifList extends Component {
 					height={ height } />
 				);
 		});
+
 		const { theme = {} } = this.props;
 		const popoverClassName = this.state.open ? theme.selectPopover : theme.selectClosedPopover;
 		const buttonClassName = this.state.open ? theme.selectPressedButton : theme.selectButton;
