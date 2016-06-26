@@ -6,7 +6,7 @@ import createLinkifyPlugin from 'draft-js-linkify-plugin';
 import createStickerPlugin from 'draft-js-sticker-plugin';
 import createHashtagPlugin from 'draft-js-hashtag-plugin';
 import createUndoPlugin from 'draft-js-undo-plugin';
-import createGiphyPlugin from '../../src';
+import createGiphyPlugin from '../../src/';
 
 
 import  'draft-js-linkify-plugin/lib/plugin.css';
@@ -70,7 +70,7 @@ const stickers = fromJS({
 const text = `Type here...`;
 
 const giphyPlugin = createGiphyPlugin();
-const GifContainer = giphyPlugin.GifContainer;
+const GiphyContainer = giphyPlugin.GiphyContainer;
 
 const mentionPlugin = createMentionPlugin({ mentions });
 const linkifyPlugin = createLinkifyPlugin();
@@ -110,7 +110,7 @@ export default class CustomEditor extends Component {
           />
         </div>
         <div className="option">
-          <GifContainer editor={ this } />
+          <GiphyContainer editor={ this } />
           <StickerSelect editor={ this }  />
           <span style={{marginRight:'10px'}} />
           <UndoButton

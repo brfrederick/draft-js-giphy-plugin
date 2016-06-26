@@ -54,7 +54,8 @@ var _apiCall = (endpoint, method, params) => {
 	        	console.log('success');
 	            try {
 	                var json = JSON.parse(xhr.responseText);
-	                var giphyData = _scrub(json.data); 
+	                var giphyData = _scrub(json.data);
+                    giphyData.searchTerm = params.q;
 	                resolve(giphyData);
 	            } catch (error) {
 	                reject(error);

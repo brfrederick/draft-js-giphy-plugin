@@ -1,4 +1,4 @@
-import remove from './helpers/removeGif';
+import remove from './removeGif';
 
 export default ({ GifEntity : component }) =>
   (block, { getEditorState, setEditorState }) => {

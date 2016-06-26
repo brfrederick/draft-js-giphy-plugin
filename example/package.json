@@ -2,7 +2,7 @@
   "name": "draft-js-giphy-plugin-example",
   "version": "1.0.0",
   "description": "A test bed for draft-js-giphy-plugin",
-  "main": "index.js",
+  "main": "dist/index.html",
   "directories": {
     "src": "src"
   },

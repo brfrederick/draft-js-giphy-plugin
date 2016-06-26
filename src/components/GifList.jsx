@@ -36,10 +36,9 @@ export default class GifList extends Component {
 
 		return (
 			<div
-				onMouseEnter={ this.onMouseEnter }
-				onMouseLeave={ this.onMouseLeave }
-      >
-				<div className={ 'selectGifList' }>
+				onMouseEnter={ this.onMouseEnter.bind(this) }
+				onMouseLeave={ this.onMouseLeave.bind(this) }>
+				<div className="selectGifList">
 					{ gifOptions }
 				</div>
 			</div>
