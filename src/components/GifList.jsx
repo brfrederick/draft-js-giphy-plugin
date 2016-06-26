@@ -15,11 +15,11 @@ export default class GifList extends Component {
   }
 
 	componentDidMount() {
-		document.addEventListener('click', this.closePopover);
+		document.addEventListener('click', this.closePopover.bind(this));
 	}
 
 	componentWillUnmount() {
-		document.removeEventListener('click', this.closePopover);
+		document.removeEventListener('click', this.closePopover.bind(this));
 	}
 
 	onMouseEnter() {
@@ -81,7 +81,7 @@ export default class GifList extends Component {
 			<div className={ theme.select }>
 				<button
 					className={ buttonClassName }
-					onMouseUp={ this.openPopover }
+					onMouseUp={ this.openPopover.bind(this) }
 					type="button">
 					{ this.props.selectButtonContent }
 				</button>

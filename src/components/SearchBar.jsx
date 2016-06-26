@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
 					className=""
 					value={ this.state.value }
 					placeholder="Search GIPHY for gifs"
-        			onChange={ this.handleChange }
+        			onChange={ this.handleChange.bind(this) }
         			type="text" />
 			</div>
 		);
