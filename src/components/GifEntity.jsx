@@ -21,6 +21,7 @@ export default class GifEntity extends Component {
 		    </span>
 	    );
 	    const data = Entity.get(block.getEntityAt(0)).getData();
+	    const gif = gifs.getIn(['data', data.id]);
 
 	    return (
 			<figure
@@ -29,8 +30,10 @@ export default class GifEntity extends Component {
 				className={ theme.gif }>
 		        <img
 		          className={ theme.gifImage }
-		          src={ gifs.getIn(['data', data.id, 'url']) }
-		          role="presentation" />
+		          src={ gif.url }
+		          role="presentation"
+		          width={ gif.width }
+		          height={ gif.height }/>
 			{ this.props.attachRemoveButton ? removeButton : null }
 		</figure>
 	    );
