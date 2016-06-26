@@ -51,7 +51,6 @@ var _apiCall = (endpoint, method, params) => {
 
         xhr.onload = function(event) {
         	if (this.status === 200) {
-	        	console.log('success');
 	            try {
 	                var json = JSON.parse(xhr.responseText);
 	                var giphyData = _scrub(json.data);

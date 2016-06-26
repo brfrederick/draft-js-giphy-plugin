@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 /* Helpers */
 import Giphy from '../helpers/giphy';
+import add from '../helpers/addGif';
 
 /* Components */
 import SearchBar from './SearchBar';
@@ -10,7 +11,7 @@ import GifList from './GifList';
 
 export default class GiphyContainer extends Component {
 	state = {
-    	open: false,
+		open: false,
 		gifs: [],
 		giphy: this.props.giphyApiKey ? new Giphy(this.props.giphyApiKey) : undefined
 	}
@@ -72,13 +73,14 @@ export default class GiphyContainer extends Component {
 	}
 
 	onGifClick(gif){
-    const { editor } = this.props;
-		editor.onChange(add(editor.state.editorState, id));
+		// add gif?
+		const { editor } = this.props;
+		editor.onChange(add(editor.state.editorState, gif));
 	}
 
 	render() {
-    const popoverClassName = this.state.open ? 'selectPopover' : 'selectClosedPopover';
-    const buttonClassName = this.state.open ? 'selectPressedButton': 'selectButton';
+		const popoverClassName = this.state.open ? 'selectPopover' : 'selectClosedPopover';
+		const buttonClassName = this.state.open ? 'selectPressedButton': 'selectButton';
 
 		return (
       		<div className={ 'select', 'plzno' } style={{display:'inline-block'}}>
@@ -96,7 +98,7 @@ export default class GiphyContainer extends Component {
               />
 
   					  <GifList
-                style={{marginTop: '30px'}}
+                		style={{marginTop: '30px'}}
             		gifs={ this.state.gifs }
             		add={ this.onGifClick.bind(this) }
               />

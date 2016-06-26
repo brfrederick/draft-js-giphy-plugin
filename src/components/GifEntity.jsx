@@ -3,6 +3,10 @@ import { Entity } from 'draft-js';
 
 export default class GifEntity extends Component {
 
+	componentWillMount() {
+		console.log('gif');
+	}
+
 	remove(event) {
 		event.preventDefault();
 		event.stopPropagation();
@@ -21,7 +25,7 @@ export default class GifEntity extends Component {
 		    </span>
 	    );
 	    const data = Entity.get(block.getEntityAt(0)).getData();
-	    const gif = gifs.getIn(['data', data.id]);
+	    console.log(data);
 
 	    return (
 			<figure

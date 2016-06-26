@@ -10,17 +10,17 @@ import {
 import { List, Repeat } from 'immutable';
 
 
-export default (editorState, id) => {
+export default (editorState, gif) => {
     const currentContent = editorState.getCurrentContent();
     const currentSelection = editorState.getSelection();
 
-    const afterRemovalContent = Modifier.removeRange(
+    const afterRemovalContentState = Modifier.removeRange(
         currentContent,
         currentSelection,
         'backward'
     );
 
-    const targetSelection = afterRemovalContent.getSelectionAfter();
+    const targetSelection = afterRemovalContentState.getSelectionAfter();
     const blockKeyForTarget = targetSelection.get('focusKey');
     const block = currentContent.getBlockForKey(blockKeyForTarget);
 
@@ -34,13 +34,13 @@ export default (editorState, id) => {
         insertionTargetSelection = targetSelection;
         insertionTargetBlock = afterRemovalContentState;
     } else {
-        insertionTargetBlock = Modifier.splitBlock(afterRemovalContent, targetSelection);
+        insertionTargetBlock = Modifier.splitBlock(afterRemovalContentState, targetSelection);
         insertionTargetSelection = insertionTargetBlock.getSelectionAfter();
     }
 
     const newContentStateAfterSplit = Modifier.setBlockType(insertionTargetBlock, insertionTargetSelection, 'gif');
 
-    const entityKey = Entity.create('gif', 'IMMUTABLE', { id });
+    const entityKey = Entity.create('gif', 'IMMUTABLE', gif);
     const charDataOfGif = CharacterMetadata.create({ entity: entityKey });
 
     const fragmentArray = [

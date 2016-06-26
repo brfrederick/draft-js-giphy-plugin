@@ -8,7 +8,7 @@ function setOverflow(newValue, element) {
 
 export default class GifList extends Component {
 
-  onMouseEnter() {
+	onMouseEnter() {
 		setOverflow('hidden', document.body);
 	}
 

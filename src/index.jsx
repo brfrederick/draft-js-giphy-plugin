@@ -18,7 +18,7 @@ import GiphyContainer from './components/GiphyContainer';
 const giphyDevelopmentKey = 'dc6zaTOxFJmzC';
 
 export default function(config = {}) {
-  const theme = config.theme; // || defaultTheme;
+	const theme = config.theme; // || defaultTheme;
 	const giphyApiKey = config.apiKey || giphyDevelopmentKey;
 
 	if (giphyApiKey === giphyDevelopmentKey) {
