@@ -58,15 +58,19 @@ export default class GifList extends Component {
 
 	render() {
 		const gifOptions = this.props.gifs.map((gif) => {
-			const id = gif.id;
-			const url = gif.url;
+			const id = gif.id,
+				  url = gif.url,
+				  width = gif.width,
+				  height = gif.height;
 			return (
 				<GifOption
 					theme={ this.props.theme }
 					key={ id }
 					onClick={ this.add }
 					id={ id }
-					url={ url } />
+					url={ url }
+					width={ width }
+					height={ height } />
 				);
 		});
 		const { theme = {} } = this.props;

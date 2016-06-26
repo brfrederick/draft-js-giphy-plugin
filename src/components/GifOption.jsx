@@ -6,7 +6,7 @@ export default class GifOption extends Component {
 	}
 
 	render() {
-		const { id, url, theme = {} } = this.props;
+		const { id, url, width, height, theme = {} } = this.props;
 		return (
 			<button
 				className={ theme.selectGif }
@@ -17,6 +17,8 @@ export default class GifOption extends Component {
 					className={ theme.selectGifImage }
 					src={ url }
 					role="presentation"
+					width={ width }
+					height={ height }
 				/>
 			</button>
 		);
