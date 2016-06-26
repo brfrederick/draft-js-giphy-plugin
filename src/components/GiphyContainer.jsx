@@ -43,6 +43,8 @@ export default class GiphyContainer extends Component {
 	}
 
 	closePopover() {
+    if (e.target.classList.contains('selectGifList')) return;
+
 		if (!this.preventNextClose && this.state.open) {
 			this.setState({
 				open: false
@@ -75,6 +77,9 @@ export default class GiphyContainer extends Component {
 	}
 
 	render() {
+    const popoverClassName = this.state.open ? 'selectPopover' : 'selectClosedPopover';
+    const buttonClassName = this.state.open ? 'selectPressedButton': 'selectButton';
+
 		return (
       		<div className={ 'select' } style={{display:'inline-block'}}>
         		<button
