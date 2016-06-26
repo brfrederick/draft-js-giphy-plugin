@@ -3,14 +3,9 @@ import { Entity } from 'draft-js';
 
 export default class GifEntity extends Component {
 
-	componentWillMount() {
-		console.log('gif');
-	}
-
 	remove(event) {
 		event.preventDefault();
 		event.stopPropagation();
-
 		this.props.blockProps.onRemove(this.props.block.getKey());
 	}
 
@@ -19,13 +14,12 @@ export default class GifEntity extends Component {
 		const removeButton = (
 		    <span
 				className={ theme.gifRemoveButton }
-				onClick={ this.remove }
+				onClick={ this.remove.bind(this) }
 				role="button">
 				✕
 		    </span>
 	    );
 	    const data = Entity.get(block.getEntityAt(0)).getData();
-	    console.log(data);
 
 	    return (
 			<figure
@@ -36,10 +30,10 @@ export default class GifEntity extends Component {
 		          className={ theme.gifImage }
 		          src={ data.url }
 		          role="presentation"
-		          width={ data.width }
-		          height={ data.height }/>
-			{ this.props.attachRemoveButton ? removeButton : null }
-		</figure>
+		          width={ (data.width * 100) / data.height }
+		          height={ 100 }/>
+				{ this.props.attachRemoveButton ? removeButton : null }
+			</figure>
 	    );
 	}
 }

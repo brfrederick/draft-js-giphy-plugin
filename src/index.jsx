@@ -44,8 +44,8 @@ export default function(config = {}) {
 
 	return {
 		pluginProps: {
-		blockRendererFn: blockRendererFn(blockRendererConfig),
-		onChange: cleanupGifs
+			blockRendererFn: blockRendererFn(blockRendererConfig),
+			onChange: cleanupGifs
 		},
 		add: addGif,
 		remove: removeGif,
