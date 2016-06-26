@@ -17,11 +17,13 @@ export default class GiphyContainer extends Component {
 
 	componentWillMount() {
 		document.addEventListener('click', this.closePopover.bind(this));
+
 		if (this.state.giphy) {
 			var that = this;
 			this.state.giphy.trending().then(function (gifs) {
 				that.setState({
-					gifs: gifs
+					gifs: gifs,
+          open: false,
 				});
 			}, function (error) {
 				console.error(error);
@@ -42,8 +44,9 @@ export default class GiphyContainer extends Component {
 		}
 	}
 
-	closePopover() {
-    if (e.target.classList.contains('selectGifList')) return;
+	closePopover(e) {
+    console.log(e);
+    if (e.target.classList.contains('plzno')) return;
 
 		if (!this.preventNextClose && this.state.open) {
 			this.setState({
@@ -54,8 +57,6 @@ export default class GiphyContainer extends Component {
 	}
 
 	onChange(text) {
-		// search
-		console.log(this.state.giphy);
 		if (this.state.giphy) {
 			var that = this;
 			this.state.giphy.search(text).then(function (gifs) {
@@ -71,8 +72,7 @@ export default class GiphyContainer extends Component {
 	}
 
 	onGifClick(gif){
-		// add gif?
-    	const { editor } = this.props;
+    const { editor } = this.props;
 		editor.onChange(add(editor.state.editorState, id));
 	}
 
@@ -81,7 +81,7 @@ export default class GiphyContainer extends Component {
     const buttonClassName = this.state.open ? 'selectPressedButton': 'selectButton';
 
 		return (
-      		<div className={ 'select' } style={{display:'inline-block'}}>
+      		<div className={ 'select', 'plzno' } style={{display:'inline-block'}}>
         		<button
           			style={ { marginRight: '10px', width:'40px', height:'40px' } }
           			className={ buttonClassName }
@@ -90,12 +90,16 @@ export default class GiphyContainer extends Component {
           			{ this.props.selectButtonContent || 'GIF' }
         		</button>
 
-		        <div className={ popoverClassName }>
-  					<SearchBar onChange={ this.onChange.bind(this) } />
-  					<GifList
-            			gifs={ this.state.gifs }
-            			add={ this.onGifClick.bind(this) }
-            			theme={ this.props.theme } />
+		        <div className={ popoverClassName } onClick={ this.justDont }>
+  					  <SearchBar
+                onChange={ this.onChange.bind(this) }
+              />
+
+  					  <GifList
+                style={{marginTop: '30px'}}
+            		gifs={ this.state.gifs }
+            		add={ this.onGifClick.bind(this) }
+              />
         		</div>
         		<div className={ 'selectBottomGradient' }></div>
       		</div>
