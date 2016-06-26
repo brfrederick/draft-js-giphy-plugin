@@ -5,15 +5,16 @@ import decorateComponentWithProps from 'decorate-component-with-props';
 import addGif from './helpers/addGif';
 import removeGif from './helpers/removeGif';
 import cleanupGifs from './helpers/cleanupGifs';
+import blockRendererFn from './helpers/blockRendererFn';
 
 /* Components */
 import GifEntity from './components/GifEntity';
 import Container from './components/Container';
 
 /* Styling */
-import gifStyles from './gif.css';
-import selectStyles from './select.css';
-import selectGifStyles from './selectGif.css';
+import gifStyles from './styles/gif.css';
+import selectStyles from './styles/select.css';
+import selectGifStyles from './styles/selectGif.css';
 
 const defaultTheme = {
   gif: gifStyles.gif,
@@ -44,13 +45,12 @@ const giphyPlugin = (config = {}) => {
 	const attachRemoveButton = config.attachRemoveButton !== false;
 	const gifProps = {
 		attachRemoveButton,
-		gifs,
 		theme
 	};
 
 	const blockRendererConfig = {
 		...config,
-		GifEntity: decorateComponentWithProps(GifEntity, gifProps);
+		GifEntity: decorateComponentWithProps(GifEntity, gifProps)
 	}
 	return {
 	    blockRendererFn: blockRendererFn(blockRendererConfig),

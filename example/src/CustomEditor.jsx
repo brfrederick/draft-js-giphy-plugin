@@ -6,6 +6,7 @@ import createLinkifyPlugin from 'draft-js-linkify-plugin';
 import createStickerPlugin from 'draft-js-sticker-plugin';
 import createHashtagPlugin from 'draft-js-hashtag-plugin';
 import createUndoPlugin from 'draft-js-undo-plugin';
+import createGiphyPlugin from '../../src';
 
 
 import  'draft-js-linkify-plugin/lib/plugin.css';
@@ -73,9 +74,11 @@ const stickerPlugin = createStickerPlugin({ stickers });
 const StickerSelect = stickerPlugin.StickerSelect;
 const hashtagPlugin = createHashtagPlugin();
 const undoPlugin = createUndoPlugin();
+const giphyPlugin = createGiphyPlugin();
+const Container = giphyPlugin.Container;
 const { UndoButton, RedoButton } = undoPlugin;
 
-const plugins = [mentionPlugin, linkifyPlugin, stickerPlugin, hashtagPlugin, undoPlugin];
+const plugins = [mentionPlugin, linkifyPlugin, stickerPlugin, giphyPlugin, hashtagPlugin, undoPlugin];
 
 export default class CustomEditor extends Component {
 
@@ -105,6 +108,7 @@ export default class CustomEditor extends Component {
           />
         </div>
         <div className="option">
+          <Container editor={ this } />
           <StickerSelect editor={ this }  />
           <span style={{marginRight:'10px'}} />
           <UndoButton

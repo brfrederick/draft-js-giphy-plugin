@@ -1,6 +1,7 @@
 import Promise from 'bluebird';
 
-const BASE_URL = 'http://api.giphy.com';
+const BASE_URL = 'https://api.giphy.com';
+var API_KEY = '';
 
 const HttpMethod = {
     GET: 'GET',
@@ -37,6 +38,7 @@ var _urlFormat = (params) => {
             str += `${key}=${value}&`
         });
     }
+    str += `api_key=${API_KEY}`
     return str;
 };
 
@@ -47,21 +49,22 @@ var _apiCall = (endpoint, method, params) => {
 
         xhr.open(method, url);
 
-        xhr.onabort = function(event) {
-            reject(event);
+        xhr.onload = function(event) {
+        	if (this.status === 200) {
+	        	console.log('success');
+	            try {
+	                var json = JSON.parse(xhr.responseText);
+	                var giphyData = _scrub(json.data); 
+	                resolve(giphyData);
+	            } catch (error) {
+	                reject(error);
+	            }
+        	} else {
+        		reject (this.status);
+        	}
         };
-        xhr.onerror = function(event) {
-            reject(event);
-        }
-        xhr.onload = function() {
-            try {
-                var json = JSON.parse(xhr.responseText);
-                var giphyData = _scrub(json.data); 
-                resolve(giphyData);
-            } catch (error) {
-                reject(error);
-            }
-        };
+
+        xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.send();
     });
@@ -69,9 +72,10 @@ var _apiCall = (endpoint, method, params) => {
 
 export default class Giphy {
     constructor(apiKey) {
-        this.apiKey = apiKey;
+        API_KEY = apiKey;
     }
     search(searchTerm, options) {
+    	options = options || {}
         const params = {
             q: searchTerm || '',
             limit: options.limit || 25,
@@ -81,6 +85,7 @@ export default class Giphy {
         return _apiCall(GiphyEndpoint.search, HttpMethod.GET, params);
     }
     trending(options) {
+    	options = options || {};
     	const params = {
     		limit: options.limit || 25,
     		rating: options.rating || 'pg',

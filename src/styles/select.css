@@ -48,7 +48,18 @@
 }
 
 .selectPressedButton {
-  composes: selectButton;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 0;
+  color: #888;
+  margin: 0;
+  border-radius: 1.5em;
+  cursor: pointer;
+  height: 1.5em;
+  width: 2.5em;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  margin: 0;
   background: #ededed;
 }
 

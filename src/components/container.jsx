@@ -20,13 +20,15 @@ export default class Container extends Component {
 	}
 
 	componentWillMount() {
-		giphy.trending().then(function (gifs) {
-			this.setState({
-				gifs: gifs
-			})
-		}, function (error) {
-			
-		});
+		if (this.state.giphy) {
+			this.state.giphy.trending().then(function (gifs) {
+				this.setState({
+					gifs: gifs
+				})
+			}, function (error) {
+				
+			});
+		}
 	}
 
 	onChange(text) {

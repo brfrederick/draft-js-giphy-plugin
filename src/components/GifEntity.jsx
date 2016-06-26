@@ -3,12 +3,12 @@ import { Entity } from 'draft-js';
 
 export default class GifEntity extends Component {
 
-	remove(event) => {
+	remove(event) {
 		event.preventDefault();
 		event.stopPropagation();
 
 		this.props.blockProps.onRemove(this.props.block.getKey());
-	};
+	}
 
 	render() {
 		const { block, gifs, theme = {} } = this.props;
