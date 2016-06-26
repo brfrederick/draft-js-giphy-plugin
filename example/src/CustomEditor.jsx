@@ -14,6 +14,7 @@ import  'draft-js-mention-plugin/lib/plugin.css';
 import  'draft-js-sticker-plugin/lib/plugin.css';
 import  'draft-js-hashtag-plugin/lib/plugin.css';
 import  'draft-js-undo-plugin/lib/plugin.css';
+import  '../../src/plugin.css';
 import  './editorStyles.css';
 
 import { fromJS } from 'immutable';

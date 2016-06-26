@@ -12,14 +12,13 @@ import GifEntity from './components/GifEntity';
 import GifContainer from './components/Container';
 
 /* Styles */
-import defaultTheme from './styles';
+// import defaultTheme from './styles';
 
 export default function(config = {}) {
-  const theme = config.theme || defaultTheme;
-  console.log(theme);
+  const theme = config.theme; // || defaultTheme;
 
 	const containerProps = {
-		selectButtonContent: config.selectButtonContent || '☺',
+		selectButtonContent: config.selectButtonContent || 'GIF',
 		theme
 	};
 

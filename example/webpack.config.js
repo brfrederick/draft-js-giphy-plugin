@@ -20,6 +20,13 @@ module.exports = {
         loaders: [
           'style', 'css',
         ]
+      },
+      {
+        test: /\.css$/,
+        include: path.join(__dirname, '..', 'src', 'styles'),
+        loaders: [
+          'style', 'css?modules',
+        ]
       }
     ]
   },
